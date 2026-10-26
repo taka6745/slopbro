@@ -1,0 +1,220 @@
+[
+  {
+    "repo": "axeldelaguardia/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "vbludov/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "theboy181/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "BlazingGamer27/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "carlosrdemoura/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "davidsiphone136-max/slopbro",
+    "status": "ahead",
+    "ahead": 1,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "Oscar5566/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "RomS484/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "hereisavi/slopbro-webOS-ui",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "Code-Allergy/slopbro",
+    "status": "ahead",
+    "ahead": 1,
+    "behind": 0,
+    "files": [
+      ".github/workflows/security-regressions.yml",
+      "Makefile",
+      "README.md",
+      "SECURITY.md",
+      "THIRD_PARTY_LICENSES.txt",
+      "slopbro.py",
+      "tests/test_installer.py",
+      "tests/test_payload.js",
+      "tests/test_slopbro.py",
+      "tools/package_single_file.py",
+      "wwwroot/autoroot.sh",
+      "wwwroot/hbchannel-startup.sh",
+      "wwwroot/index.html",
+      "wwwroot/luna-helper.js",
+      "wwwroot/main.js"
+    ]
+  },
+  {
+    "repo": "ElMani1/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "idkimrankdom101/slopbro",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "repo": "chrmei/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "jefdiesel/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "triumfas/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "yycholla/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "wakamex/slopbro",
+    "status": "ahead",
+    "ahead": 49,
+    "behind": 0,
+    "files": [
+      "README.md",
+      "slopbro.py",
+      "tests/js_retry_test.js",
+      "tests/test_slopbro.py",
+      "tools/package_single_file.py",
+      "wwwroot/autoroot.sh",
+      "wwwroot/index.html",
+      "wwwroot/main.js"
+    ]
+  },
+  {
+    "repo": "nabilelnouby-prog/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "cipherstream/slopbro-mod",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "ammarkhous/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "Jovanni-Sanchez/slopbro",
+    "status": "identical",
+    "ahead": 0,
+    "behind": 0,
+    "files": []
+  },
+  {
+    "repo": "adeze/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  },
+  {
+    "repo": "sto0pk1d/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  },
+  {
+    "repo": "dsdtsolutionsllc/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  },
+  {
+    "repo": "WizzyDizzySWE/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  },
+  {
+    "repo": "khan007/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  },
+  {
+    "repo": "digitalsignalperson/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  },
+  {
+    "repo": "emdnaia/slopbro",
+    "status": "behind",
+    "ahead": 0,
+    "behind": 4,
+    "files": []
+  }
+]

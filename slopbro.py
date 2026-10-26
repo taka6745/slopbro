@@ -63,6 +63,7 @@ SHELL_SCRIPT = "autoroot.sh"
 SERVICE_FILES = [
     "package.json",
     "main.js",
+    "preinstall-guards.sh",
 ]
 
 ASSET_SOURCE_AUTO = "auto"
@@ -1126,7 +1127,7 @@ def run(
 
         log("waiting for all tracked files to be requested")
         tracker.wait_for_all(None)
-        log("done; all tracked files were requested (❛ ᴗ ❛)")
+        log("all payload files were requested; installation, root access, and reboot persistence are NOT verified")
     finally:
         client.close()
         if http_server is not None:

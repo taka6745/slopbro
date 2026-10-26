@@ -1,0 +1,118 @@
+[
+  {
+    "version": "0.7.3",
+    "checks": [
+      {
+        "file": "startup.sh",
+        "matching_paths": [
+          "usr/palm/services/org.webosbrew.hbchannel.service/startup.sh"
+        ],
+        "identical_to_tag": true
+      },
+      {
+        "file": "jumpstart.sh",
+        "matching_paths": [
+          "usr/palm/services/org.webosbrew.hbchannel.service/jumpstart.sh"
+        ],
+        "identical_to_tag": true
+      },
+      {
+        "file": "run-js-service",
+        "matching_paths": [
+          "usr/palm/services/org.webosbrew.hbchannel.service/run-js-service"
+        ],
+        "identical_to_tag": true
+      }
+    ],
+    "native_binaries": [
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/dropbear",
+        "sha256": "8f5b03abd1075b843eba4b204de380cd30f7cb2940090f7c13276b54aab70f20",
+        "size": 227608
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/remount-nosuids.sh",
+        "sha256": "8539ebd924d267a02a2b75a18405dc6fc7f49bb184f6c4b3adddf5c7912fafc2",
+        "size": 284
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/rsync",
+        "sha256": "5f31a5224e0a704c178711f77ff84b9b13208e3854433d3aae8426cf07428234",
+        "size": 409332
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/sampatcher.py",
+        "sha256": "0ec42e3d7bff388c79cad51386f221c35dfbd518ca09724625ca85853b95ce8a",
+        "size": 987
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/scp",
+        "sha256": "e7717b5614ad0ced60c71d1bcf51ce99712d3cea408ddf91b3082a77a5430fe1",
+        "size": 26040
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/sftp-server",
+        "sha256": "ab7cc7ccda361990f80a96a054bb3fd90943f307acdfcfee2b6e241f4ff988d4",
+        "size": 189972
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/telnetd",
+        "sha256": "0027c86f3a139533d2542655bbab0dad059cb0d4e0d863770d6dd1272b3684a5",
+        "size": 71452
+      }
+    ]
+  },
+  {
+    "version": "0.8.0-rc1",
+    "checks": [
+      {
+        "file": "startup.sh",
+        "matching_paths": [
+          "usr/palm/services/org.webosbrew.hbchannel.service/startup.sh"
+        ],
+        "identical_to_tag": true
+      },
+      {
+        "file": "jumpstart.sh",
+        "matching_paths": [
+          "usr/palm/services/org.webosbrew.hbchannel.service/jumpstart.sh"
+        ],
+        "identical_to_tag": true
+      },
+      {
+        "file": "run-js-service",
+        "matching_paths": [
+          "usr/palm/services/org.webosbrew.hbchannel.service/run-js-service"
+        ],
+        "identical_to_tag": true
+      }
+    ],
+    "native_binaries": [
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/dropbear",
+        "sha256": "8f5b03abd1075b843eba4b204de380cd30f7cb2940090f7c13276b54aab70f20",
+        "size": 227608
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/rsync",
+        "sha256": "5f31a5224e0a704c178711f77ff84b9b13208e3854433d3aae8426cf07428234",
+        "size": 409332
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/scp",
+        "sha256": "e7717b5614ad0ced60c71d1bcf51ce99712d3cea408ddf91b3082a77a5430fe1",
+        "size": 26040
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/sftp-server",
+        "sha256": "ab7cc7ccda361990f80a96a054bb3fd90943f307acdfcfee2b6e241f4ff988d4",
+        "size": 189972
+      },
+      {
+        "path": "usr/palm/services/org.webosbrew.hbchannel.service/bin/telnetd",
+        "sha256": "0027c86f3a139533d2542655bbab0dad059cb0d4e0d863770d6dd1272b3684a5",
+        "size": 71452
+      }
+    ]
+  }
+]

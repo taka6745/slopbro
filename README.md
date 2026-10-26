@@ -1,5 +1,10 @@
 # SlopBro
 
+> This branch is a **hardware-untested review candidate** with pre-install guards
+> and a pinned Homebrew Channel 0.8.0-rc1 package for webOS 11. Read the
+> [changes and remaining risks](SAFETY-REVIEW.md) before use. Passing local tests
+> does not establish zero bricking risk or guaranteed recovery.
+
 Some of the Python was written by an LLM. (You think I wanted to write a
 Python 2.7/3.x-compatible WebSocket client?) The rest is good, old-fashioned
 **human** slop. It's the spirit of the times, you know?

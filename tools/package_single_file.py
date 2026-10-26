@@ -29,6 +29,7 @@ DEFAULT_FILES = [
     "autoroot.sh",
     "package.json",
     "main.js",
+    "preinstall-guards.sh",
 ]
 
 

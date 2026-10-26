@@ -10,8 +10,13 @@ set -e
 SCRIPT_DIR="${SCRIPT_DIR:-$(dirname -- "${0}")}"
 DEBUG="${DEBUG:-}"
 IPK_SRC="${IPK_SRC:-"${SCRIPT_DIR}/hbchannel.ipk"}"
-IPK_URL='https://github.com/webosbrew/webos-homebrew-channel/releases/download/v0.7.3/org.webosbrew.hbchannel_0.7.3_all.ipk'
+# Deliberate webOS 11 compatibility candidate; see SAFETY-REVIEW.md.
+# This is a fixed reviewed release, not an automatic latest/fallback download.
+IPK_URL='https://github.com/throwaway96/webos-homebrew-channel/releases/download/v0.8.0-rc1/org.webosbrew.hbchannel_0.8.0_all.ipk'
+IPK_SHA256='17c90447563c3f079e991d4276f52b058fc5288877b6e2cd14f48a2afd902a91'
 SCRIPT_NAME='SlopBro'
+
+. "${SCRIPT_DIR}/preinstall-guards.sh"
 
 is_root() {
     test "$(id -u)" -eq 0
@@ -122,9 +127,9 @@ download_file() {
     fi
 
     if [ -n "${CURL_INSECURE}" ]; then
-        curl -k -L -o "${dl_path}" -- "${dl_url}"
+        curl -k --fail --connect-timeout 15 --max-time 120 -L -o "${dl_path}" -- "${dl_url}"
     else
-        curl -L -o "${dl_path}" -- "${dl_url}"
+        curl --fail --connect-timeout 15 --max-time 120 -L -o "${dl_path}" -- "${dl_url}"
     fi
 }
 
@@ -166,21 +171,10 @@ verify_sd() {
 }
 
 enable_devmode() {
-    if [ -d '/var/luna/preferences/devmode_enabled' ]; then
-        log 'devmode_enabled is already a directory; is your TV already rooted?'
-    else
-        if [ -e '/var/luna/preferences/devmode_enabled' ]; then
-            log 'devmode_enabled exists; make sure the LG Dev Mode app is not installed!'
-
-            rm -f -- '/var/luna/preferences/devmode_enabled'
-        else
-            debug 'devmode_enabled does not exist'
-        fi
-
-        if ! mkdir -- '/var/luna/preferences/devmode_enabled'; then
-            error 'Failed to create devmode_enabled directory'
-            exit 1
-        fi
+    require_absent_path '/var/luna/preferences/devmode_enabled' || exit 1
+    if ! mkdir -- '/var/luna/preferences/devmode_enabled'; then
+        error 'Failed to create devmode_enabled directory'
+        exit 1
     fi
 }
 
@@ -315,18 +309,17 @@ perform_root() {
 
     debug "Dev Mode app installed: '${devmode_installed}'"
 
-    buttons_reboot='{"label":"Reboot now","onclick":"luna://com.webos.service.sleep/shutdown/machineReboot","params":{"reason":"remoteKey"}},{"label":"Don'\''t reboot"}'
     buttons_ok='{"label":"OK"}'
 
-    message_reboot='Would you like to reboot now?'
+    message_verify='Keep the TV on for separate root and recovery verification. Do not reboot yet.'
     message_devmode='However, the Dev Mode app is installed. You must uninstall it before rebooting!'
-    message_devmode_unknown='The status of the Dev Mode app could not be determined. Please report this issue. If you know it is not installed, you can reboot now. Otherwise, make sure it is removed before rebooting.<br>Would you like to reboot now?'
+    message_devmode_unknown='The status of the Dev Mode app could not be determined. Keep the TV on and investigate before any reboot.'
 
     case "${devmode_installed}" in
         false)
             log "Dev Mode app not installed. (Don't install it!)"
-            buttons="${buttons_reboot}"
-            message="${message_reboot}"
+            buttons="${buttons_ok}"
+            message="${message_verify}"
         ;;
         true)
             log 'Dev Mode app installed; uninstall it before rebooting!'
@@ -335,19 +328,19 @@ perform_root() {
         ;;
         *)
             log "Unknown Dev Mode app state: '${devmode_installed}' (please report)"
-            buttons="${buttons_reboot}"
+            buttons="${buttons_ok}"
             message="${message_devmode_unknown}"
         ;;
     esac
 
-    payload="$(printf '{"sourceId":"%s","message":"<h3>%s</h3>Rooting complete. You may need to reboot for Homebrew Channel to appear.<br>%s","buttons":[%s]}' "${SRC_APPID}" "${SCRIPT_NAME}" "${message}" "${buttons}")"
+    payload="$(printf '{"sourceId":"%s","message":"<h3>%s</h3>Installation stage finished; root access and persistence are not yet verified.<br>%s","buttons":[%s]}' "${SRC_APPID}" "${SCRIPT_NAME}" "${message}" "${buttons}")"
 
     alert_response="$(luna-send -w 2000 -a "${SRC_APPID}" -n 1 'luna://com.webos.notification/createAlert' "${payload}")"
 
     debug "/createAlert response: '${alert_response}'"
 
-    log 'Rooting complete'
-    toast 'Rooting complete. <h4>Do not install the LG Dev Mode app while rooted!</h4>'
+    log 'Installation stage finished; root access and persistence are not yet verified'
+    toast 'Installation stage finished. Keep the TV on for root and recovery verification. Do not reboot yet.'
 }
 
 while [ "${#}" -gt 0 ]; do
@@ -373,6 +366,7 @@ while [ "${#}" -gt 0 ]; do
     shift
 done
 
+require_root || exit 1
 create_lockfile '/tmp/autoroot.lock'
 
 [ -e "${SCRIPT_DIR}/autoroot.debug" ] && DEBUG='file'
@@ -429,4 +423,6 @@ else
     fi
 fi
 
+preinstall_checks '/var/luna/preferences/devmode_enabled' "${ipk}" "${IPK_SHA256}" \
+    "${sd_script}" "${sd_script}.backup" '/var/lib/webosbrew' || exit 1
 perform_root
